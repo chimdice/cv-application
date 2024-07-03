@@ -7,7 +7,7 @@ function CV (props) {
   return (
     <div className="cv">
       <h2>{props.field}: </h2>
-      <h3>{props.info}</h3>
+      <p>{props.info}</p>
     </div>
   )
 }

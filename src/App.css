@@ -1,8 +1,8 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  height: 100svh;
 }
 
 main {
@@ -33,6 +33,12 @@ input {
   margin-right: 10px;
 }
 
-button:hover {
-  border: 1px solid black;
+.cv {
+  text-align: left;
+}
+
+.cv h2,
+.cv p {
+  display: inline;
+  font-size: 18px;
 }
