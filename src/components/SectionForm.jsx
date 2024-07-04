@@ -11,7 +11,7 @@ function GeneralForm () {
 
     return (
         <>
-        <div className="form">
+        <div className="form-general">
           <h2>Please Enter each field</h2>
           <form>
             <FormElement type="text" field="name" value={nameInfo} onType={updateNameInfo}/>
@@ -27,7 +27,7 @@ function GeneralForm () {
 
 function RenderGenral () {
   return(
-    <div className="current-cv">
+    <div className="cv-general">
       <h2>Current CV</h2>
       <CV field="name"/>
       <CV field="email"/>
