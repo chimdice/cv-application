@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CV from "./Cv";
 import FormElement from "./FormElement";
+import FormSubmit from "./FormSubmit";
 
 export default function GeneralForm () {
 
@@ -19,7 +20,7 @@ export default function GeneralForm () {
           <h2>Current CV</h2>
             <CV field="name" info={cvName}/>
             <CV field="email" info={cvEmail}/>
-            <CV field="phone number" info={cvPhone}/>
+            <CV field="phone-number" info={cvPhone}/>
         </div>
         <div className="form">
           <h2>Please Enter each field</h2>
@@ -27,6 +28,7 @@ export default function GeneralForm () {
             <FormElement type="text" field="name" value={nameInfo} onClick={updateCVName} onType={updateNameInfo}/>
             <FormElement type="email" field="email" value={emailInfo} onClick={updateCVEmail} onType={updateEmailInfo}/>
             <FormElement type="tel" field="phone-number" value={phoneInfo} onClick={updateCVPhone} onType={updatePhoneInfo}/>
+            <FormSubmit />
           </form>
         </div>
         </>
