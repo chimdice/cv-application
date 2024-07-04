@@ -5,6 +5,8 @@ import './App.css'
 import FormElement from './components/FormElement'
 import CV from './components/Cv'
 import {GeneralForm, RenderGenral} from './components/SectionForm'
+import { GeneralFormCreate } from './components/SectionCreate'
+
 
 function App() {
   return (
@@ -14,13 +16,11 @@ function App() {
       </header>
       <main>
         <div className="cv-render">
-          <RenderGenral />
         </div>
         <div className="form-render">
-          <GeneralForm />
         </div>
        <div className="add-section-render">
-        
+          <GeneralFormCreate />
        </div>
       </main>
     </>
