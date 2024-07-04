@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import FormElement from './components/FormElement'
 import CV from './components/Cv'
-import GeneralForm from './components/SectionForm'
+import {GeneralForm, RenderGenral} from './components/SectionForm'
 
 function App() {
   return (
@@ -13,7 +13,15 @@ function App() {
         <h1>CV Creator</h1>
       </header>
       <main>
-        <GeneralForm />
+        <div className="cv-render">
+          <RenderGenral />
+        </div>
+        <div className="form-render">
+          <GeneralForm />
+        </div>
+       <div className="add-section-render">
+        
+       </div>
       </main>
     </>
   )

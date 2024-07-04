@@ -11,13 +11,14 @@ main {
   width: 100svw;
 }
 
-.form, .current-cv {
-  outline: 1px solid black;
-  padding: 20px;
+.cv-render {
+  width: 50%;
+  height: 70svh;
 }
 
-.current-cv {
-  width: 50%;
+.form, .cv-render {
+  outline: 1px solid black;
+  padding: 20px;
 }
 
 
