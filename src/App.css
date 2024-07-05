@@ -43,3 +43,7 @@ input {
   display: inline;
   font-size: 18px;
 }
+
+.hide-form {
+  display: none;
+}

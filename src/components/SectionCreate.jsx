@@ -1,11 +1,12 @@
-import { GeneralForm, RenderGenral } from "./SectionForm";
-
 const addGeneral = () => {
-    const cv = document.querySelector(".cv-render");
-    cv.appendChild(RenderGenral);
-    //cv.insertBefore(RenderGenral, cv.firstChild);
-    const form = document.querySelector(".form-render");
-    form.appendChild(GeneralForm);
+    const general = document.querySelector(".form-general");
+    console.log(general);
+    general.classList.toggle("hide-form");
+    
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.style.display = 'none';
+    })
 
 }
 
