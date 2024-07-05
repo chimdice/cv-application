@@ -18,9 +18,9 @@ function App() {
         <div className="cv-render">
         </div>
         <div className="form-render">
+          <GeneralForm/>
         </div>
        <div className="add-section-render">
-          <GeneralFormCreate />
        </div>
       </main>
     </>

@@ -17,7 +17,7 @@ function GeneralForm () {
             <FormElement type="text" field="name" value={nameInfo} onType={updateNameInfo}/>
             <FormElement type="email" field="email" value={emailInfo} onType={updateEmailInfo}/>
             <FormElement type="tel" field="phone-number" value={phoneInfo} onType={updatePhoneInfo}/>
-            <FormSubmit />
+            <FormSubmit section="general"/>
           </form>
         </div>
         </>
