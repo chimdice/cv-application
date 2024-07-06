@@ -28,6 +28,9 @@ const click = (section) => {
 
     form.appendChild(cv);
     formAll.classList.toggle('hide');
+
+    const buttons = document.querySelector('.buttons');
+    buttons.classList.toggle('hide');
 }
 
 export default function FormSubmit (props) {

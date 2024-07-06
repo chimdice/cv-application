@@ -21,7 +21,9 @@ function App() {
           <GeneralForm/>
         </div>
        <div className="add-section-render">
-        <GeneralFormCreate/>
+        <div className="buttons">
+          <GeneralFormCreate/>
+        </div>
        </div>
       </main>
     </>
