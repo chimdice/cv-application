@@ -11,7 +11,7 @@ function GeneralForm () {
 
     return (
         <>
-        <div className="form-general hide-form">
+        <div className="form-general hide">
           <h2>Please Enter each field</h2>
           <form>
             <FormElement type="text" field="name" value={nameInfo} onType={updateNameInfo}/>

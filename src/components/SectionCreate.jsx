@@ -1,7 +1,7 @@
 const addGeneral = () => {
     const general = document.querySelector(".form-general");
     console.log(general);
-    general.classList.toggle("hide-form");
+    general.classList.toggle("hide");
     
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {

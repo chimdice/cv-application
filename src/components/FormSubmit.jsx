@@ -1,6 +1,8 @@
 const click = (section) => {
     const formInfo = document.querySelector("form").childNodes;
-    console.log(formInfo)
+    const formAll = document.querySelector(".form-"+section);
+    console.log(formAll);
+
     const cv = document.createElement('div');
     const form = document.querySelector(".cv-render");
     cv.classList.add(section);
@@ -25,6 +27,7 @@ const click = (section) => {
     }
 
     form.appendChild(cv);
+    formAll.classList.toggle('hide');
 }
 
 export default function FormSubmit (props) {
