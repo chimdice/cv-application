@@ -25,17 +25,6 @@ function GeneralForm () {
 
 }
 
-function RenderGenral () {
-  return(
-    <div className="cv-general">
-      <h2>Current CV</h2>
-      <CV field="name"/>
-      <CV field="email"/>
-      <CV field="phone-number"/>
-      </div>
-  )
-}
-
 function EducationForm () {
 
   const [schoolName, updateSchoolName] = useState("");
@@ -45,25 +34,44 @@ function EducationForm () {
 
   return (
       <>
-      <div className="current-cv">
-        <h2>Current CV</h2>
-          <CV field="school"/>
-          <CV field="email"/>
-          <CV field="start-school"/>
-          <CV field="end-school"/>
-      </div>
-      <div className="form">
+      <div className="form-education hide">
         <h2>Please Enter each field</h2>
         <form>
           <FormElement type="text" field="school" value={schoolName} onType={updateSchoolName}/>
           <FormElement type="text" field="major" value={majorName} onType={updateMajorName}/>
           <FormElement type="date" field="start-school" value={startDate} onType={updateStartDate}/>
           <FormElement type="date" field="end-school" value={endDate} onType={updateEndDate}/>
-          <FormSubmit />
+          <FormSubmit section="education"/>
         </form>
       </div>
       </>
   )
 }
 
-export {GeneralForm, RenderGenral}
+
+function ExperienceForm () {
+
+  const [companyName, updateCompanyName] = useState("");
+  const [positionName, updatePositionName] = useState("");
+  const [responsibilites, updateResponsibilites] = useState("")
+  const [startDate, updateStartDate] = useState("");
+  const [endDate, updateEndDate] = useState("");
+
+  return (
+      <>
+      <div className="form-experience hide">
+        <h2>Please Enter each field</h2>
+        <form>
+          <FormElement type="text" field="company" value={companyName} onType={updateCompanyName}/>
+          <FormElement type="text" field="title" value={positionName} onType={updatePositionName}/>
+          <FormElement type="text" field="repsonsibilites" value={responsibilites} onType={updateResponsibilites}/>
+          <FormElement type="date" field="start-company" value={startDate} onType={updateStartDate}/>
+          <FormElement type="date" field="end-company" value={endDate} onType={updateEndDate}/>
+          <FormSubmit section="experience"/>
+        </form>
+      </div>
+      </>
+  )
+}
+
+export {GeneralForm, EducationForm, ExperienceForm}

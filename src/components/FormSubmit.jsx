@@ -1,7 +1,7 @@
 const click = (section) => {
-    const formInfo = document.querySelector("form").childNodes;
     const formAll = document.querySelector(".form-"+section);
-    console.log(formAll);
+    const formInfo = formAll.lastChild.childNodes;
+    console.log(formInfo);
 
     const cv = document.createElement('div');
     const form = document.querySelector(".cv-render");
@@ -16,7 +16,7 @@ const click = (section) => {
         cvItem.classList.add('cv');
 
         const h2 = document.createElement("h2");
-        h2.textContent = id;
+        h2.textContent = id+": ";
 
         const p = document.createElement('p');
         p.textContent = value;
@@ -28,6 +28,12 @@ const click = (section) => {
 
     form.appendChild(cv);
     formAll.classList.toggle('hide');
+
+    if (section === 'general') {
+      const generalButton = document.querySelector('.general-button');
+      generalButton.classList.toggle('hide');
+
+    }
 
     const buttons = document.querySelector('.buttons');
     buttons.classList.toggle('hide');

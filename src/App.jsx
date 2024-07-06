@@ -4,8 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import FormElement from './components/FormElement'
 import CV from './components/Cv'
-import {GeneralForm, RenderGenral} from './components/SectionForm'
-import { GeneralFormCreate } from './components/SectionCreate'
+import {GeneralForm, EducationForm, ExperienceForm} from './components/SectionForm'
+import { GeneralFormCreate, EducationFormCreate, ExperienceFormCreate } from './components/SectionCreate'
 
 
 function App() {
@@ -19,10 +19,14 @@ function App() {
         </div>
         <div className="form-render">
           <GeneralForm/>
+          <EducationForm/>
+          <ExperienceForm />
         </div>
        <div className="add-section-render">
         <div className="buttons">
           <GeneralFormCreate/>
+          <EducationFormCreate/>
+          <ExperienceFormCreate/>
         </div>
        </div>
       </main>
