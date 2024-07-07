@@ -13,7 +13,7 @@ main {
 
 .cv-render {
   width: 50%;
-  height: 70svh;
+  font-size: 14px;
 }
 
 .form, .cv-render {
@@ -31,7 +31,7 @@ input, button {
 }
 
 input {
-  margin-right: 10px;
+  margin-right: 14px;
 }
 
 .cv {
@@ -41,7 +41,7 @@ input {
 .cv h2,
 .cv p {
   display: inline;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .hide {

@@ -16,6 +16,9 @@ function App() {
       </header>
       <main>
         <div className="cv-render">
+          <CV field="general"/>
+          <CV field="education"/>
+          <CV field="experience"/>
         </div>
         <div className="form-render">
           <GeneralForm/>

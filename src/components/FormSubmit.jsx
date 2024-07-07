@@ -4,7 +4,8 @@ const click = (section) => {
     console.log(formInfo);
 
     const cv = document.createElement('div');
-    const form = document.querySelector(".cv-render");
+    cv.setAttribute("style", "margin-bottom:10px")
+    const form = document.querySelector(".cv-"+section);
     cv.classList.add(section);
 
     for (let i = 0; i < formInfo.length - 1; i++) {
