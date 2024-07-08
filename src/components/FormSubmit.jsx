@@ -1,3 +1,4 @@
+
 const click = (section) => {
     const formAll = document.querySelector(".form-"+section);
     const formInfo = formAll.lastChild.childNodes;
@@ -27,25 +28,75 @@ const click = (section) => {
         cv.appendChild(cvItem);
     }
 
+    cv.addEventListener("click", ()=>{
+      const className = cv.className;
+      const form = document.querySelector(".form-"+className);
+      const buttons = document.querySelector(".buttons")
+
+      if (form.classList.contains("hide")) {
+          form.classList.toggle("hide");
+          buttons.classList.toggle("hide");
+      }
+
+
+      const submit = document.querySelector("."+className+" #"+className);
+      const edit = document.querySelector("#"+className+"-edit");
+
+      console.log(submit);
+      console.log(edit)
+
+      if (edit.classList.contains("hide")) {
+          submit.classList.toggle("hide");
+          edit.classList.toggle("hide"); 
+      }
+    })
+
     form.appendChild(cv);
     formAll.classList.toggle('hide');
 
     if (section === 'general') {
       const generalButton = document.querySelector('.general-button');
-      generalButton.classList.toggle('hide');
-
+      if (! generalButton.classList.contains('hide')) {
+        generalButton.classList.toggle('hide');
+      }
     }
 
     const buttons = document.querySelector('.buttons');
     buttons.classList.toggle('hide');
 }
 
+const edit = (section) => {
+  const cv = document.querySelector(".cv-"+section +" ."+section);
+  const className = cv.className;
+
+  const form = document.querySelector(".form-"+className);
+  const submit = document.querySelector("."+className+" #"+className);
+  const edit = document.querySelector("#"+className+"-edit");
+  const buttons = document.querySelector(".buttons")
+
+  console.log(cv);
+  const cvElements = cv.childNodes;
+  for (let i = 0; i < cvElements.length; i++){
+      const newValue = form.lastChild.childNodes[i].lastChild.firstChild.value;
+      cvElements[i].lastChild.textContent = newValue;
+  }
+
+  submit.classList.toggle("hide");
+  edit.classList.toggle("hide");
+  form.classList.toggle("hide");
+  buttons.classList.toggle("hide");
+}
+
 export default function FormSubmit (props) {
 
 
     return (
-      <div className={props.section} style={{"padding":"10px"}}>
-        <input type="submit" id={props.section} value="submit" onClick={(e) => {e.preventDefault(); click(props.section)}}/>
-    </div>
+      <>      
+        <div className={props.section} style={{"padding":"10px"}}>
+          <input type="submit" id={props.section} value="submit" onClick={(e) => {e.preventDefault(); click(props.section)}}/>
+          <input type="submit" id={props.section+"-edit"} className="hide" value="edit" onClick={(e)=>{e.preventDefault(); edit(props.section)}}/>
+        </div>
+      </>
+
     )
   }
