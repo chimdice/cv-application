@@ -4,7 +4,7 @@ export default function FormElement (props) {
       <div className="form-element" style={{"padding":"10px"}}>
         <label htmlFor={props.field}>{props.field}: </label>
         <div>
-          <input type={props.type} id={props.field} value={props.value} onChange={(e) => props.onType(e.target.value)}/>
+          <input type={props.type} id={props.field} value={props.value} onInput={(e) => props.onType(e.target.value)}/>
         </div>
       </div>
     )
