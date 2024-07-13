@@ -8,6 +8,9 @@ import {GeneralForm,EditGeneralForm, /*EducationForm, ExperienceForm*/} from './
 import { GeneralFormCreate, EducationFormCreate, ExperienceFormCreate } from './components/SectionCreate'
 
 function App() {
+
+  const [currentGeneralEdit, newGeneralEdit] = useState({name:"", email:"", phone:""});
+
   return (
     <>
       <header>
@@ -26,8 +29,8 @@ function App() {
           <CV field="experience"/>
         </div>
         <div className="form-render">
-          <GeneralForm/>
-          <EditGeneralForm />
+          <GeneralForm editor={newGeneralEdit}/>
+          <EditGeneralForm values={currentGeneralEdit}/>
           {/*<EducationForm/>
           <ExperienceForm />*/}
         </div>

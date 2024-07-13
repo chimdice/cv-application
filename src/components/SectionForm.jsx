@@ -2,8 +2,9 @@ import { useState } from "react";
 import CV from "./Cv";
 import getFormElement from "./FormElement";
 import FormSubmit from "./FormSubmit";
+import FormEdit from "./EditSubmit";
 
-function GeneralForm () {
+function GeneralForm (props) {
 
     const [allSubmits, addSubmits] = useState([{name:"", email: "", phone:""}])
   
@@ -21,7 +22,7 @@ function GeneralForm () {
             {name.render}
             {email.render}
             {phone.render}
-            <FormSubmit section="general" allSubmits={allSubmits} addSubmits={addSubmits} updaters={updaters}/>
+            <FormSubmit section="general" allSubmits={allSubmits} addSubmits={addSubmits} updaters={updaters} editor={props.editor}/>
           </form>
         </div>
         </>
@@ -29,23 +30,24 @@ function GeneralForm () {
 
 }
 
-function EditGeneralForm () {
+function EditGeneralForm ({values}) {
 
-  const name = getFormElement({type:"text", field:"name", initalValue:""})
-  const email = getFormElement({type:"email", field:"email", initalValue:""})
-  const phone = getFormElement({type:"tel", field:"phone-number",initalValue:""})
+  const name = getFormElement({type:"text", field:"name"})
+  const email = getFormElement({type:"email", field:"email"})
+  const phone = getFormElement({type:"tel", field:"phone-number"})
 
   const updaters = [name.changeElementValue, email.changeElementValue, phone.changeElementValue]
 
-
+  
   return (
       <>
       <div className="general-edit hide">
-        <h2>Please Enter each field</h2>
+        <h2>Please Enter edit fields</h2>
         <form>
           {name.render}
           {email.render}
           {phone.render}
+          <FormEdit section="general" updaters={updaters}/>
         </form>
       </div>
       </>

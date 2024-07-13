@@ -1,7 +1,7 @@
 import { useState } from "react";
 import renderCV from "./renderCV";
 
-const click = (section, allSubmits, addSubmits, updaters) => {
+const click = (section, allSubmits, addSubmits, updaters, editor, on) => {
     const formInfo = document.querySelector("."+section+"-submit")
     const formElements = formInfo.parentElement.childNodes;
     console.log(formInfo)
@@ -11,7 +11,7 @@ const click = (section, allSubmits, addSubmits, updaters) => {
     }
     allSubmits.push(info);
     addSubmits(allSubmits);
-    renderCV(section, info, allSubmits.length-1);
+    renderCV(section, info, allSubmits.length-1, editor);
 
     updaters.forEach((updater) => {
       updater("")
@@ -28,7 +28,7 @@ export default function FormSubmit (props) {
     return (
       <>      
         <div className={props.section+"-submit"} style={{"padding":"10px"}}>
-          <input type="submit" id={props.section} value="submit" onClick={(e) => {e.preventDefault(); click(props.section, props.allSubmits, props.addSubmits, props.updaters)}}/>
+          <input type="submit" id={props.section} value="submit" onClick={(e) => {e.preventDefault(); click(props.section, props.allSubmits, props.addSubmits, props.updaters, props.editor, props.on)}}/>
         </div>
       </>
 
