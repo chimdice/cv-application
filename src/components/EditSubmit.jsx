@@ -1,8 +1,7 @@
 import { useState } from "react";
-import renderCV from "./renderCV";
 
 const click = (section, allSubmits, addSubmits, updaters) => {
-    const formInfo = document.querySelector("."+section+"-submit")
+    const formInfo = document.querySelector("."+section+"-edit")
     const formElements = formInfo.parentElement.childNodes;
     console.log(formInfo)
     const info = {};
@@ -24,11 +23,11 @@ const click = (section, allSubmits, addSubmits, updaters) => {
     buttons.classList.toggle("hide");
 }
 
-export default function FormSubmit (props) {
+export default function FormEdit (props) {
     return (
       <>      
-        <div className={props.section+"-submit"} style={{"padding":"10px"}}>
-          <input type="submit" id={props.section} value="submit" onClick={(e) => {e.preventDefault(); click(props.section, props.allSubmits, props.addSubmits, props.updaters)}}/>
+        <div className={props.section+"-edit"} style={{"padding":"10px"}}>
+          <input type="submit" id={props.section} value="edit" onClick={(e) => {e.preventDefault(); click(props.section, props.allSubmits, props.addSubmits, props.updaters)}}/>
         </div>
       </>
 
