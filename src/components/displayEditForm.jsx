@@ -1,4 +1,4 @@
-const showEditForm = (cv,editor, cvValues) => {
+const showEditForm = (cv) => {
     const section = cv.classList[0]
     const numberID = cv.classList[1];
     const className = section+"-edit"
@@ -20,9 +20,6 @@ const showEditForm = (cv,editor, cvValues) => {
     if (editForm.classList.contains('hide')){
         editForm.classList.toggle('hide');
     }
-
-    editor(cvValues);
-
 }
 
 export {showEditForm};

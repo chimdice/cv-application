@@ -4,12 +4,13 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import FormElement from './components/FormElement'
 import CV from './components/Cv'
-import {GeneralForm,EditGeneralForm, /*EducationForm, ExperienceForm*/} from './components/SectionForm'
+import { allGeneral } from './components/SectionForm'
 import { GeneralFormCreate, EducationFormCreate, ExperienceFormCreate } from './components/SectionCreate'
 
 function App() {
 
   const [currentGeneralEdit, newGeneralEdit] = useState({name:"", email:"", phone:""});
+  const general = allGeneral();
 
   return (
     <>
@@ -29,8 +30,8 @@ function App() {
           <CV field="experience"/>
         </div>
         <div className="form-render">
-          <GeneralForm editor={newGeneralEdit}/>
-          <EditGeneralForm values={currentGeneralEdit}/>
+          {general.normalRender}
+          {general.editRender}
           {/*<EducationForm/>
           <ExperienceForm />*/}
         </div>

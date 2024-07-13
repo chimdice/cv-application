@@ -4,9 +4,11 @@ import getFormElement from "./FormElement";
 import FormSubmit from "./FormSubmit";
 import FormEdit from "./EditSubmit";
 
-function GeneralForm (props) {
+function allGeneral () {
 
     const [allSubmits, addSubmits] = useState([{name:"", email: "", phone:""}])
+    const [currentEdit, changeCurrentEdit] = useState(0)
+    const [renderGeneralEdit, setRenderGeneralEdit] = useState(false)
   
     const name = getFormElement({type:"text", field:"name"})
     const email = getFormElement({type:"email", field:"email"})
@@ -14,19 +16,37 @@ function GeneralForm (props) {
 
     const updaters = [name.changeElementValue, email.changeElementValue, phone.changeElementValue]
 
-    return (
-        <>
+    const nameEdit = getFormElement({type:"text", field:"name", initalValue:allSubmits[currentEdit].name, show:true})
+    const emailEdit = getFormElement({type:"email", field:"email", initalValue:allSubmits[currentEdit].email})
+    const phoneEdit = getFormElement({type:"tel", field:"phone-number", initalValue:allSubmits[currentEdit].phone})
+  
+    const updatersEdit = [name.changeElementValue, email.changeElementValue, phone.changeElementValue]
+
+    return ({
+      renderGeneralEdit,
+      normalRender:(
         <div className="form-general hide">
           <h2>Please Enter each field</h2>
           <form>
             {name.render}
             {email.render}
             {phone.render}
-            <FormSubmit section="general" allSubmits={allSubmits} addSubmits={addSubmits} updaters={updaters} editor={props.editor}/>
+            <FormSubmit section="general" allSubmits={allSubmits} addSubmits={addSubmits} updaters={updaters} edit={changeCurrentEdit} renderEdit={setRenderGeneralEdit}/>
           </form>
         </div>
-        </>
-    )
+        ),
+      editRender:(
+        <div className="general-edit hide">
+          <h2>Please Enter edit fields</h2>
+          <form>
+            {renderGeneralEdit&&nameEdit.render}
+            {emailEdit.render}
+            {phoneEdit.render}
+            <FormEdit section="general" updaters={updatersEdit}/>
+          </form>
+      </div>
+      )
+  })
 
 }
 
@@ -104,4 +124,4 @@ function EditGeneralForm ({values}) {
 //   )
 // }
 
-export {GeneralForm, EditGeneralForm,/*EducationForm, ExperienceForm*/}
+export {allGeneral,/*EducationForm, ExperienceForm*/}

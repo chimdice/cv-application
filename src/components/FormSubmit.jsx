@@ -11,7 +11,8 @@ const click = (section, allSubmits, addSubmits, updaters, editor, on) => {
     }
     allSubmits.push(info);
     addSubmits(allSubmits);
-    renderCV(section, info, allSubmits.length-1, editor);
+    console.log(allSubmits);
+    renderCV(section, info, allSubmits.length-1, editor, on);
 
     updaters.forEach((updater) => {
       updater("")
@@ -28,7 +29,7 @@ export default function FormSubmit (props) {
     return (
       <>      
         <div className={props.section+"-submit"} style={{"padding":"10px"}}>
-          <input type="submit" id={props.section} value="submit" onClick={(e) => {e.preventDefault(); click(props.section, props.allSubmits, props.addSubmits, props.updaters, props.editor, props.on)}}/>
+          <input type="submit" id={props.section} value="submit" onClick={(e) => {e.preventDefault(); click(props.section, props.allSubmits, props.addSubmits, props.updaters, props.edit, props.renderEdit)}}/>
         </div>
       </>
 
