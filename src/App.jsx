@@ -9,7 +9,6 @@ import { GeneralFormCreate, EducationFormCreate, ExperienceFormCreate } from './
 
 function App() {
 
-  const [currentGeneralEdit, newGeneralEdit] = useState({name:"", email:"", phone:""});
   const general = allGeneral();
 
   return (

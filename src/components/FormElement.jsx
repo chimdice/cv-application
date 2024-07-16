@@ -1,12 +1,9 @@
 import { useState } from "react"
 
-export default function getFormElement ({type="", field="", initalValue = "", show=false}) {
+export default function getFormElement ({type="", field="", initalValue = ""}) {
 
     const [elementValue, changeElementValue] = useState(initalValue);
 
-    if (show) {
-      console.log(elementValue)
-    }
 
     return ({
       elementValue,

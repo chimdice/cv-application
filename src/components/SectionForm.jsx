@@ -6,24 +6,19 @@ import FormEdit from "./EditSubmit";
 
 function allGeneral () {
 
-    const [allSubmits, addSubmits] = useState([{name:"", email: "", phone:""}])
-    const [currentEdit, changeCurrentEdit] = useState(0)
-    const [renderGeneralEdit, setRenderGeneralEdit] = useState(false)
-  
+    const [total, updateTotal] = useState(0);
     const name = getFormElement({type:"text", field:"name"})
     const email = getFormElement({type:"email", field:"email"})
     const phone = getFormElement({type:"tel", field:"phone-number"})
+    const normalUpdaters = [name.changeElementValue, email.changeElementValue, phone.changeElementValue]
 
-    const updaters = [name.changeElementValue, email.changeElementValue, phone.changeElementValue]
+    const nameEdit = getFormElement({type:"text", field:"name"})
+    const emailEdit = getFormElement({type:"email", field:"email"})
+    const phoneEdit = getFormElement({type:"tel", field:"phone-number"})
+    const editUpdaters = [nameEdit.changeElementValue, emailEdit.changeElementValue, phoneEdit.changeElementValue]
 
-    const nameEdit = getFormElement({type:"text", field:"name", initalValue:allSubmits[currentEdit].name, show:true})
-    const emailEdit = getFormElement({type:"email", field:"email", initalValue:allSubmits[currentEdit].email})
-    const phoneEdit = getFormElement({type:"tel", field:"phone-number", initalValue:allSubmits[currentEdit].phone})
-  
-    const updatersEdit = [name.changeElementValue, email.changeElementValue, phone.changeElementValue]
 
     return ({
-      renderGeneralEdit,
       normalRender:(
         <div className="form-general hide">
           <h2>Please Enter each field</h2>
@@ -31,7 +26,7 @@ function allGeneral () {
             {name.render}
             {email.render}
             {phone.render}
-            <FormSubmit section="general" allSubmits={allSubmits} addSubmits={addSubmits} updaters={updaters} edit={changeCurrentEdit} renderEdit={setRenderGeneralEdit}/>
+            <FormSubmit section="general" normal={normalUpdaters} edit={editUpdaters} total={total} addTotal={updateTotal}/>
           </form>
         </div>
         ),
@@ -39,10 +34,10 @@ function allGeneral () {
         <div className="general-edit hide">
           <h2>Please Enter edit fields</h2>
           <form>
-            {renderGeneralEdit&&nameEdit.render}
+            {nameEdit.render}
             {emailEdit.render}
             {phoneEdit.render}
-            <FormEdit section="general" updaters={updatersEdit}/>
+            <FormEdit section="general"/>
           </form>
       </div>
       )
