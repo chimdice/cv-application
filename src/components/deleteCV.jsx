@@ -1,6 +1,10 @@
 const deleteCV = (className) => {
-    //const cv = document.querySelector(className)
-    console.log(className)
+    const classNameReal = className.replace(" ", ".");
+    const cv = document.querySelector("."+classNameReal);
+    const parent = cv.parentElement;
+    parent.removeChild(cv);
+    const options = document.querySelector(".cv-options")
+    options.classList.toggle('hide');
 }
 
 export default function DeleteButton (props) {
