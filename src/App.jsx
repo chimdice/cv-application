@@ -6,10 +6,14 @@ import FormElement from './components/FormElement'
 import CV from './components/Cv'
 import { allGeneral } from './components/SectionForm'
 import { GeneralFormCreate, EducationFormCreate, ExperienceFormCreate } from './components/SectionCreate'
+import CVOptions from './components/CVOptions'
 
 function App() {
 
-  const general = allGeneral();
+  const [currentEdit, changeCurrentEdit] = useState("");
+  const [currentUpdater, changeCurrentUpdater] = useState([])
+  const general = allGeneral(changeCurrentEdit, changeCurrentUpdater);
+
 
   return (
     <>
@@ -18,10 +22,6 @@ function App() {
       </header>
       <main>
         <div className="edit-info hide">
-          <div className="edit-general">
-          </div>
-          <div className="edit-education"></div>
-          <div className="edit-experience"></div>
         </div>
         <div className="cv-render">
           <CV field="general"/>
@@ -39,6 +39,9 @@ function App() {
           <GeneralFormCreate/>
           {/* <EducationFormCreate/>
           <ExperienceFormCreate/> */}
+        </div>
+        <div className="cv-entry-options">
+            <CVOptions className={currentEdit} updater={currentUpdater}/>
         </div>
        </div>
       </main>

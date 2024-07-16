@@ -14,9 +14,6 @@ const click = (section) => {
     cvElement.childNodes[i].textContent = elementKey + elementValue;
   }
     
-  //   updaters.forEach((updater) => {
-  //     updater("")
-  //  })
   formInfo.classList.remove(numberID)
 
   const buttons = document.querySelector(".buttons");

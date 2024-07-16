@@ -1,6 +1,6 @@
 import { showEditForm } from "./displayEditForm";
 
-export default function renderCV (section, formObject, edit, total) {
+export default function renderCV (section, formObject, edit, total, editClass, changeEdit) {
     const sectionCv = document.querySelector(".cv-"+section);
     const cvElement = document.createElement("div");
     cvElement.classList.add(section);
@@ -13,14 +13,11 @@ export default function renderCV (section, formObject, edit, total) {
         cvElement.appendChild(p)
     }
 
-    const elements = cvElement.childNodes;
     cvElement.addEventListener("click", ()=>{
-        showEditForm(cvElement);
-        for (let i = 0; i < elements.length; i++) {
-            const [first,...value] = elements[i].textContent.split(":")
-            const valueC = value.join(":")
-            edit[i](valueC);
-        }
+        changeEdit(edit)
+       const options = document.querySelector(".cv-options")
+       options.classList.toggle('hide');
+       editClass(cvElement.className);
     })
 
     sectionCv.appendChild(cvElement);

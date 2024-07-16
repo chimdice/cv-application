@@ -51,3 +51,8 @@ input {
 .buttons {
   margin: 10px;
 }
+
+.option-buttons {
+  display: flex;
+  gap: 20px
+}

@@ -4,7 +4,7 @@ import getFormElement from "./FormElement";
 import FormSubmit from "./FormSubmit";
 import FormEdit from "./EditSubmit";
 
-function allGeneral () {
+function allGeneral (editClass, changeUpdater) {
 
     const [total, updateTotal] = useState(0);
     const name = getFormElement({type:"text", field:"name"})
@@ -19,6 +19,8 @@ function allGeneral () {
 
 
     return ({
+      normalUpdaters,
+      editUpdaters,
       normalRender:(
         <div className="form-general hide">
           <h2>Please Enter each field</h2>
@@ -26,7 +28,7 @@ function allGeneral () {
             {name.render}
             {email.render}
             {phone.render}
-            <FormSubmit section="general" normal={normalUpdaters} edit={editUpdaters} total={total} addTotal={updateTotal}/>
+            <FormSubmit section="general" normal={normalUpdaters} edit={editUpdaters} changeEdit={changeUpdater} total={total} addTotal={updateTotal} editClass={editClass}/>
           </form>
         </div>
         ),

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import renderCV from "./renderCV";
 
-const click = (section, normal, edit, total, addTotal) => {
+const click = (section, normal, edit, changeEdit, total, addTotal, editClass) => {
     const formInfo = document.querySelector("."+section+"-submit")
     const formElements = formInfo.parentElement.childNodes;
     const info = {};
@@ -10,7 +10,7 @@ const click = (section, normal, edit, total, addTotal) => {
     }
 
     addTotal(total+1)
-    renderCV(section, info, edit, total);
+    renderCV(section, info, edit, total, editClass, changeEdit);
     normal.forEach((element)=>{
       element("")
     })
@@ -26,7 +26,7 @@ export default function FormSubmit (props) {
     return (
       <>      
         <div className={props.section+"-submit"} style={{"padding":"10px"}}>
-          <input type="submit" id={props.section} value="submit" onClick={(e) => {e.preventDefault(); click(props.section, props.normal, props.edit, props.total, props.addTotal)}}/>
+          <input type="submit" id={props.section} value="submit" onClick={(e) => {e.preventDefault(); click(props.section, props.normal, props.edit, props.changeEdit, props.total, props.addTotal, props.editClass)}}/>
         </div>
       </>
 
