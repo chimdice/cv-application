@@ -19,11 +19,9 @@ function allGeneral (editClass, changeUpdater) {
 
 
     return ({
-      normalUpdaters,
-      editUpdaters,
       normalRender:(
         <div className="form-general hide">
-          <h2>Please Enter each field</h2>
+          <h2>Please enter each field</h2>
           <form>
             {name.render}
             {email.render}
@@ -34,7 +32,7 @@ function allGeneral (editClass, changeUpdater) {
         ),
       editRender:(
         <div className="general-edit hide">
-          <h2>Please Enter edit fields</h2>
+          <h2>Please enter edit fields</h2>
           <form>
             {nameEdit.render}
             {emailEdit.render}
@@ -47,78 +45,94 @@ function allGeneral (editClass, changeUpdater) {
 
 }
 
-function EditGeneralForm ({values}) {
+function allEducation (editClass, changeUpdater) {
 
-  const name = getFormElement({type:"text", field:"name"})
-  const email = getFormElement({type:"email", field:"email"})
-  const phone = getFormElement({type:"tel", field:"phone-number"})
+  const [total, updateTotal] = useState(0);
+  const school = getFormElement({type:"text", field:"school"})
+  const major = getFormElement({type:"text", field:"major"})
+  const startSchool = getFormElement({type:"date", field:"start-school"})
+  const endSchool = getFormElement({type:"date", field:"end-school"})
+  const normalUpdaters = [school.changeElementValue, major.changeElementValue, startSchool.changeElementValue, endSchool.changeElementValue]
 
-  const updaters = [name.changeElementValue, email.changeElementValue, phone.changeElementValue]
+  const schoolEdit = getFormElement({type:"text", field:"school"})
+  const majorEdit = getFormElement({type:"text", field:"major"})
+  const startSchoolEdit = getFormElement({type:"date", field:"start-school"})
+  const endSchoolEdit = getFormElement({type:"date", field:"end-school"})
+  const editUpdaters = [schoolEdit.changeElementValue, majorEdit.changeElementValue, startSchoolEdit.changeElementValue, endSchoolEdit.changeElementValue]
 
   
-  return (
-      <>
-      <div className="general-edit hide">
-        <h2>Please Enter edit fields</h2>
-        <form>
-          {name.render}
-          {email.render}
-          {phone.render}
-          <FormEdit section="general" updaters={updaters}/>
-        </form>
-      </div>
-      </>
-  )
 
+  return ({
+      normalRender:(
+      <div className="form-education hide">
+        <h2>Please enter each field</h2>
+        <form>
+          {school.render}
+          {major.render}
+          {startSchool.render}
+          {endSchool.render}
+          <FormSubmit section="education" normal={normalUpdaters} edit={editUpdaters} changeEdit={changeUpdater} total={total} addTotal={updateTotal} editClass={editClass}/>
+        </form>
+      </div>),
+      editRender:(
+        <div className="education-edit hide">
+          <h2>Please enter edit fields</h2>
+          <form>
+            {schoolEdit.render}
+            {majorEdit.render}
+            {startSchoolEdit.render}
+            {endSchoolEdit.render}
+            <FormEdit section="education"/>
+          </form>
+        </div>)
+  })
 }
 
-// function EducationForm () {
 
-//   const [schoolName, updateSchoolName] = useState("");
-//   const [majorName, updateMajorName] = useState("");
-//   const [startDate, updateStartDate] = useState("");
-//   const [endDate, updateEndDate] = useState("");
+function allExperience (editClass, changeUpdater) {
 
-//   return (
-//       <>
-//       <div className="form-education hide">
-//         <h2>Please Enter each field</h2>
-//         <form>
-//           <FormElement type="text" field="school" value={schoolName} onType={updateSchoolName}/>
-//           <FormElement type="text" field="major" value={majorName} onType={updateMajorName}/>
-//           <FormElement type="date" field="start-school" value={startDate} onType={updateStartDate}/>
-//           <FormElement type="date" field="end-school" value={endDate} onType={updateEndDate}/>
-//           <FormSubmit section="education"/>
-//         </form>
-//       </div>
-//       </>
-//   )
-// }
+  const [total, updateTotal] = useState(0);
+  const company = getFormElement({type:"text", field:"company"})
+  const position = getFormElement({type:"text", field:"position"})
+  const startJob = getFormElement({type:"date", field:"start-job"})
+  const endJob = getFormElement({type:"date", field:"end-job"})
+  const repsonsibilites = getFormElement({type:"textarea", field:"responsibility"})
+  const normalUpdaters = [company.changeElementValue, position.changeElementValue, startJob.changeElementValue, endJob.changeElementValue, repsonsibilites.changeElementValue]
 
+  const companyEdit = getFormElement({type:"text", field:"company"})
+  const positionEdit = getFormElement({type:"text", field:"position"})
+  const startJobEdit = getFormElement({type:"date", field:"start-job"})
+  const endJobEdit = getFormElement({type:"date", field:"end-job"})
+  const repsonsibilitesEdit = getFormElement({type:"textarea", field:"responsibility"})
+  const editUpdaters = [companyEdit.changeElementValue, positionEdit.changeElementValue, startJobEdit.changeElementValue, endJobEdit.changeElementValue, repsonsibilitesEdit.changeElementValue]
 
-// function ExperienceForm () {
+  return ({
+    normalRender:(
+    <div className="form-experience hide">
+      <h2>Please enter each field</h2>
+      <form>
+        {company.render}
+        {position.render}
+        {startJob.render}
+        {endJob.render}
+        {repsonsibilites.render}
+        <FormSubmit section="experience" normal={normalUpdaters} edit={editUpdaters} changeEdit={changeUpdater} total={total} addTotal={updateTotal} editClass={editClass}/>
+      </form>
+    </div>),
+    editRender:(
+      <div className="experience-edit hide">
+        <h2>Please enter edit fields</h2>
+        <form>
+          {companyEdit.render}
+          {positionEdit.render}
+          {startJobEdit.render}
+          {endJobEdit.render}
+          {repsonsibilitesEdit.render}
+          <FormEdit section="exprience"/>
+        </form>
+      </div>)
+})
+  
+}
 
-//   const [companyName, updateCompanyName] = useState("");
-//   const [positionName, updatePositionName] = useState("");
-//   const [responsibilites, updateResponsibilites] = useState("")
-//   const [startDate, updateStartDate] = useState("");
-//   const [endDate, updateEndDate] = useState("");
-
-//   return (
-//       <>
-//       <div className="form-experience hide">
-//         <h2>Please Enter each field</h2>
-//         <form>
-//           <FormElement type="text" field="company" value={companyName} onType={updateCompanyName}/>
-//           <FormElement type="text" field="title" value={positionName} onType={updatePositionName}/>
-//           <FormElement type="text" field="repsonsibilites" value={responsibilites} onType={updateResponsibilites}/>
-//           <FormElement type="date" field="start-company" value={startDate} onType={updateStartDate}/>
-//           <FormElement type="date" field="end-company" value={endDate} onType={updateEndDate}/>
-//           <FormSubmit section="experience"/>
-//         </form>
-//       </div>
-//       </>
-//   )
-// }
-
-export {allGeneral,/*EducationForm, ExperienceForm*/}
+export {allGeneral, allEducation, allExperience}

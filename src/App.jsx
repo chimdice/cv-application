@@ -4,16 +4,18 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import FormElement from './components/FormElement'
 import CV from './components/Cv'
-import { allGeneral } from './components/SectionForm'
+import { allGeneral, allEducation, allExperience} from './components/SectionForm'
 import { GeneralFormCreate, EducationFormCreate, ExperienceFormCreate } from './components/SectionCreate'
 import CVOptions from './components/CVOptions'
 
 function App() {
 
   const [currentEdit, changeCurrentEdit] = useState("");
-  const [currentUpdater, changeCurrentUpdater] = useState([])
-  const general = allGeneral(changeCurrentEdit, changeCurrentUpdater);
+  const [currentUpdater, changeCurrentUpdater] = useState([]);
 
+  const general = allGeneral(changeCurrentEdit, changeCurrentUpdater);
+  const education = allEducation(changeCurrentEdit, changeCurrentUpdater);
+  const experience = allExperience(changeCurrentEdit, changeCurrentUpdater);
 
   return (
     <>
@@ -31,14 +33,16 @@ function App() {
         <div className="form-render">
           {general.normalRender}
           {general.editRender}
-          {/*<EducationForm/>
-          <ExperienceForm />*/}
+          {education.normalRender}
+          {education.editRender}
+          {experience.normalRender}
+          {experience.editRender}
         </div>
        <div className="add-section-render">
         <div className="buttons">
           <GeneralFormCreate/>
-          {/* <EducationFormCreate/>
-          <ExperienceFormCreate/> */}
+          <EducationFormCreate/>
+          <ExperienceFormCreate/>
         </div>
         <div className="cv-entry-options">
             <CVOptions className={currentEdit} updater={currentUpdater}/>

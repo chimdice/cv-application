@@ -15,9 +15,9 @@ export default function renderCV (section, formObject, edit, total, editClass, c
 
     cvElement.addEventListener("click", ()=>{
         changeEdit(edit)
-       const options = document.querySelector(".cv-options")
-       options.classList.toggle('hide');
-       editClass(cvElement.className);
+        const options = document.querySelector(".cv-options")
+        options.classList.toggle('hide');
+        editClass(cvElement.className);
     })
 
     sectionCv.appendChild(cvElement);
