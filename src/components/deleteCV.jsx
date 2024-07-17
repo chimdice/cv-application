@@ -5,6 +5,12 @@ const deleteCV = (className) => {
     parent.removeChild(cv);
     const options = document.querySelector(".cv-options")
     options.classList.toggle('hide');
+
+    const buttons = document.querySelector(".buttons");
+    if (buttons.classList.contains('hide')) {
+        buttons.classList.toggle('hide');
+    }
+
 }
 
 export default function DeleteButton (props) {
