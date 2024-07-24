@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
   height: 100svh;
@@ -8,12 +7,17 @@
 main {
   display: flex;
   gap: 20px;
-  width: 100svw;
+  min-width: 80svw;
 }
 
 .cv-render {
   width: 50%;
   font-size: 14px;
+  text-align: left;
+  margin-left: 10px;
+  background-color: white;
+  max-height: 70svh;
+  overflow: scroll;
 }
 
 .form, .cv-render {
@@ -50,6 +54,11 @@ input {
 
 .buttons {
   margin: 10px;
+  gap: 10px;
+}
+
+button {
+  background-color: #60b68c;
 }
 
 .option-buttons {
